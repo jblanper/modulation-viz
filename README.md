@@ -3,6 +3,6 @@ Interactive visualization that shows how different modulators affect the paramet
 
 Activate wach modulator with the "on/off" button.
 
-I programm it to learn how the modulation of a periodic wave works.
+I programmed it to learn how the modulation of a periodic wave works.
 
 Enjoy!
