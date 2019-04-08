@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modulation viz</title>
+  <style>
+body {
+  margin: 0;
+  font: 12px sans-serif;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  background-color: #ffffffbb;
+  transition: all 800ms ease-out;
+}
+
+.hide {
+  transition: all 800ms ease-in;
+  transform: translateX(-97%);
+}
+
+#ui, #intro, #close {
+  padding: 10px;
+}
+
+#ui {
+  display: flex;
+}
+
+#intro {
+  max-width: 250px;
+}
+
+#intro p {
+  margin: 0;
+  font-size: 110%;
+}
+
+#intro h1 {
+  font-size: 150%;
+}
+
+#toggle-panel {
+  margin-top: 20px;
+}
+
+.slider, p, h1 { padding: 3px; }
+
+button {
+  background-color: #fff;
+  border: 3px solid #000;
+  padding: 1ex;
+}
+
+#toggle-panel button {
+  width: 2.5em;
+}
+
+.toggle {
+  color: green;
+  border-color: green;
+}
+
+.toggle:hover {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+}
+
+.deactivated {
+  color: red;
+  border-color: red;
+}
+  </style>
+</head>
+<body>
+  <div id="panel">
+    <div id="ui"></div>
+    <div id="intro">
+      <h1>Modulation Viz</h1>
+      <p>Interactive visualization that shows how different modulators affect the parameters of a signal carrier.</p>
+      <p>Activate wach modulator with the "on/off" button.</p>
+      <p>I programm it to learn how the modulation of a periodic wave works.</p>
+      <p>Enjoy!</p>
+    </div>
+    <div id="toggle-panel"></div>
+  </div>
+  <canvas></canvas>
+  <script type="module" src="sketch.js"></script>
+  <script nomodule src="bundle.js"></script>
+</body>
+</html>
