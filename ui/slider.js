@@ -1,4 +1,4 @@
-import { html } from './helper.js';
+import { html } from '../helper.js';
 
 export default class Slider {
     constructor ({

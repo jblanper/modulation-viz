@@ -1,5 +1,6 @@
-import Slider from './slider.js';
-import ToggleButton from './toggleButton.js';
+import Slider from './ui/slider.js';
+import ToggleButton from './ui/toggleButton.js';
+import { icons } from './ui/icons.js';
 
 export function createControlPanel (
     { wave, label, num, activeWaves, updateFn }
@@ -57,7 +58,7 @@ export function createTogglePanelButton () {
 
     const toggleButton = new ToggleButton({
         parent: togglePanelDiv, prop: 'toggle-panel-btn', value: false,
-        labelTrue: 'O', labelFalse: 'X',
+        labelTrue: icons.circle, labelFalse: icons.cross,
         updateFn: function () {
             if (this.value) panel.classList.add('hide'); 
             else panel.classList.remove('hide'); 

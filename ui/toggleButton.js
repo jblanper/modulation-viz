@@ -1,8 +1,8 @@
-import { html } from './helper.js';
+import { html } from '../helper.js';
 
 export default class ToggleButton {
     constructor ({
-        parent, prop, scope = null, updateFn, value, labelTrue = 'on', labelFalse = 'off'
+        parent, prop, scope = null, updateFn, value, labelTrue = 'on', labelFalse = 'off', title = null
     }) {
         this.prop = prop;
         this.scope = scope;
@@ -11,6 +11,7 @@ export default class ToggleButton {
         this.labelTrue = labelTrue;
         this.labelFalse = labelFalse;
         this.value = value;
+        this.title = title;
 
         this.node = null;
         this.parent = parent;
@@ -24,11 +25,13 @@ export default class ToggleButton {
             id: this.prop, classes: ['toggle']
         }, null);
 
+        if (this.title) this.node.title = this.title;
+
         if (!this.value) {
             this.node.classList.add('deactivated')
-            this.node.textContent = this.labelFalse
+            this.node.innerHTML = this.labelFalse
         } else {
-            this.node.textContent = this.labelTrue
+            this.node.innerHTML = this.labelTrue
         };
 
         this.parent.appendChild(this.node);
@@ -43,8 +46,8 @@ export default class ToggleButton {
 
         this.value = !this.value
 
-        if (!this.value) this.node.textContent = this.labelFalse;
-        else this.node.textContent = this.labelTrue;
+        if (!this.value) this.node.innerHTML = this.labelFalse;
+        else this.node.innerHTML = this.labelTrue;
 
         if (this.scope) this.scope[this.prop] = this.value;
 
